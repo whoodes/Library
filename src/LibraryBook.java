@@ -28,11 +28,20 @@ public class LibraryBook implements Book {
     }
 
     @Override
-    public boolean isCheckedOut() {
+    public boolean getCheckedOut() {
         return checkedOut;
     }
 
-    public Date returnDate(){
+    public void setCheckedOut(boolean checkedOut){
+        this.checkedOut = checkedOut;
+    }
+
+    public Date getReturnDate(){
         return dueDate;
     }
+
+    public void setDueDate(Date dueDate){
+        this.dueDate = dueDate;
+    }
+
 }

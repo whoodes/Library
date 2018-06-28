@@ -10,9 +10,13 @@ public interface Book {
 
     String getAuthor();
 
-    boolean isCheckedOut();
+    boolean getCheckedOut();
 
-    Date returnDate();
+    void setCheckedOut(boolean checkedOut);
+
+    Date getReturnDate();
+
+    void setDueDate(Date dueDate);
 
 }
 
