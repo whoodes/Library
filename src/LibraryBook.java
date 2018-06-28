@@ -36,7 +36,7 @@ public class LibraryBook implements Book {
         this.checkedOut = checkedOut;
     }
 
-    public Date getReturnDate(){
+    public Date getDueDate(){
         return dueDate;
     }
 

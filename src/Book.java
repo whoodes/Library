@@ -14,7 +14,7 @@ public interface Book {
 
     void setCheckedOut(boolean checkedOut);
 
-    Date getReturnDate();
+    Date getDueDate();
 
     void setDueDate(Date dueDate);
 
