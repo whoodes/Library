@@ -32,14 +32,17 @@ public class LibraryBook implements Book {
         return checkedOut;
     }
 
+    @Override
     public void setCheckedOut(boolean checkedOut){
         this.checkedOut = checkedOut;
     }
 
+    @Override
     public Date getDueDate(){
         return dueDate;
     }
 
+    @Override
     public void setDueDate(Date dueDate){
         this.dueDate = dueDate;
     }
