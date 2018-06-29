@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.util.Calendar;
 
 public interface Book {
 
@@ -14,9 +14,9 @@ public interface Book {
 
     void setCheckedOut(boolean checkedOut);
 
-    Date getDueDate();
+    Calendar getDueDate();
 
-    void setDueDate(Date dueDate);
+    void setDueDate(Calendar dueDate);
 
 }
 
