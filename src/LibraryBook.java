@@ -87,5 +87,16 @@ public class LibraryBook implements Book {
         this.dueDate = dueDate;
     }
 
+    /**
+     * Custom toString method for LibraryBook
+     *
+     * @return String
+     */
+    @Override
+    public String toString(){
+        return getTitle() + " by " + getAuthor();
+    }
+
+
 
 }

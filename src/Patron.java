@@ -89,7 +89,7 @@ public class Patron {
     public String displayCurrentBooks(){
 
         for(LibraryBook book : rentals){
-            return book.getTitle() + "\n";
+            return book.toString() + "\n";
         }
 
         //Need a default
