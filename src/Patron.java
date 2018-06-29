@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Patron {
 
@@ -35,11 +36,20 @@ public class Patron {
         rentals.add(book);
     }
 
-    public String toString(){
-        if(rentals.isEmpty()){
+    public String displayCurrentBooks(){
+        for(LibraryBook book : rentals){
+            return book.getTitle() + "\n";
+        }
+        return "\n";
+    }
+
+    public String toString() {
+        if (rentals.isEmpty()) {
             return getLastName() + ", " + getFirstName() + " has no books checked out.";
-        }else
-            return getLastName() + ", " + getFirstName() + " has " + rentals.size() + " books checked out.";
+        }else{
+            return getLastName() + ", " + getFirstName() + " has " + rentals.size() + " books checked out:\n"
+                    + displayCurrentBooks();
+        }
     }
 
 }
