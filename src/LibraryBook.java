@@ -95,7 +95,7 @@ public class LibraryBook implements Book {
     @Override
     public String toString() {
 
-        if (checkedOut == true){
+        if (checkedOut == false){
             return getTitle() + " by " + getAuthor() + ": checked in";
         }else
             return getTitle() + " by " + getAuthor() + ": checked out";
