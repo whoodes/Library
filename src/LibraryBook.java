@@ -93,10 +93,14 @@ public class LibraryBook implements Book {
      * @return String
      */
     @Override
-    public String toString(){
-        return getTitle() + " by " + getAuthor();
-    }
+    public String toString() {
 
+        if (checkedOut == true){
+            return getTitle() + " by " + getAuthor() + ": checked in";
+        }else
+            return getTitle() + " by " + getAuthor() + ": checked out";
+
+    }
 
 
 }
