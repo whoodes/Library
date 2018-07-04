@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Library {
 
@@ -17,6 +18,15 @@ public class Library {
             "8. Check out a Library Book.\n" +
             "9. Display all currently checked out Library books.\n" +
             "10. Exit.";
+    private static String enterChoice = "Please enter a corresponding number from the option list: ";
+
+    /*
+    In case the number of options available changes
+    these variables will appear in the user input loop
+    guards in the main method.
+     */
+    private static int lowOption = 1;
+    private static int highOption = 10;
 
     /**
      * Display the current Patrons.
@@ -127,6 +137,50 @@ public class Library {
 
         System.out.println(welcomeMessage + options);
 
+        int userChoice = 0;
+        boolean userInputLoopGuard = false;
+
+        Scanner menuOptionInput = new Scanner(System.in);   //For user input
+        Scanner createModifyInput = new Scanner(System.in); //For user create / modify
+        Scanner searchKeyInput = new Scanner(System.in);    //For user searches
+
+
+        //Loop the program until the user enters highOption//
+        while(userChoice != highOption) {
+
+            try {
+
+
+                //Loop to ensure correct initial input//
+                while (userInputLoopGuard == false) {
+
+                    System.out.print(enterChoice);
+                    userChoice = menuOptionInput.nextInt();
+
+                    if (userChoice >= lowOption && userChoice <= highOption) {
+                        userInputLoopGuard = true;
+                        continue;
+                    } else {
+                        System.out.println();
+                    }
+
+                }
+
+                if (userChoice == 1) {
+
+                }
+
+
+            }catch(Exception ex){
+                System.out.println("An error occurred...\n");
+                menuOptionInput.next();
+            }
+
+
+
+        }
+
     }
+
 
 }
