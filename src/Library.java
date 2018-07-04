@@ -102,6 +102,27 @@ public class Library {
 
     }
 
+    /**
+     * Display all of the checked out books in the system
+     *
+     * @return String
+     */
+    public String diplayAllCheckedOutBooks(){
+
+        for(LibraryBook b : libraryShelf){
+
+            if(b.getCheckedOut()){
+                return b.toString();
+            }else {
+                continue;
+            }
+
+        }
+
+        return "";
+
+    }
+
     public static void main(String[] args){
 
         System.out.println(welcomeMessage + options);
