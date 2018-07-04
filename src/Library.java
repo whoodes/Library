@@ -58,20 +58,21 @@ public class Library {
      * @param key String
      * @return boolean
      */
-    public boolean searchByBook(String key) {
+    public ArrayList<LibraryBook> searchByBook(String key) {
 
-        boolean result = false;
+        ArrayList<LibraryBook> results = new ArrayList<>();
+
         for (LibraryBook b : libraryShelf) {
 
             if (b.getTitle().contains(key) || b.getAuthor().contains(key)) {
-                result = true;
+                results.add(b);
             }else{
                 continue;
             }
 
         }
 
-        return result;
+        return results;
 
     }
 
@@ -83,20 +84,21 @@ public class Library {
      * @param key String
      * @return boolean
      */
-    public boolean searchByPatron(String key){
+    public ArrayList<Patron> searchByPatron(String key){
 
-        boolean result = false;
+        ArrayList<Patron> results = new ArrayList<>();
+
         for(Patron p : libraryPatrons){
 
             if(p.getFirstName().contains(key) || p.getLastName().contains(key)){
-                result = true;
+                results.add(p);
             }else{
                 continue;
             }
 
         }
 
-        return result;
+        return results;
 
     }
 
