@@ -10,3 +10,6 @@ A Patron class,
 A LibraryBook class,
 And the Library class containing the main method.
 
+Within the Library class the lowOption variable should typically stay unchanged, but the high option
+should always correspond to the exit option for the user.
+
