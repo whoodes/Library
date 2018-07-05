@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Library {
 
-    private ArrayList<LibraryBook> libraryShelf = new ArrayList<>();
-    private ArrayList<Patron> libraryPatrons = new ArrayList<>();
+    private static ArrayList<LibraryBook> libraryShelf = new ArrayList<>();
+    private static ArrayList<Patron> libraryPatrons = new ArrayList<>();
 
     private static String welcomeMessage = "*** Welcome to Library Manager 0.1 ***\n\n";
     private static String options = "Options: \n\n" +
@@ -137,9 +137,10 @@ public class Library {
 
         System.out.println(welcomeMessage + options);
 
-        int userChoice = 0;
-        boolean userInputLoopGuard = false;
+        int userChoice = 0; //Defaulted
+        boolean userInputLoopGuard;
 
+        //Independent inputs//
         Scanner menuOptionInput = new Scanner(System.in);   //For user input
         Scanner createModifyInput = new Scanner(System.in); //For user create / modify
         Scanner searchKeyInput = new Scanner(System.in);    //For user searches
@@ -150,7 +151,7 @@ public class Library {
 
             try {
 
-
+                userInputLoopGuard = false;
                 //Loop to ensure correct initial input//
                 while (userInputLoopGuard == false) {
 
@@ -166,8 +167,17 @@ public class Library {
 
                 }
 
+                //Add a patron//
                 if (userChoice == 1) {
-
+                    String firstName;
+                    String lastName;
+                    System.out.print("Enter first name: ");
+                    firstName = createModifyInput.nextLine();
+                    System.out.print("Enter last name: ");
+                    lastName = createModifyInput.nextLine();
+                    Patron patron = new Patron(firstName, lastName);
+                    libraryPatrons.add(patron);
+                    continue;
                 }
 
 
