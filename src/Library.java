@@ -33,7 +33,7 @@ public class Library {
      *
      * @return String
      */
-    public static void displayPatrons() {
+    private static void displayPatrons() {
 
         for (int i = 0; i < libraryPatrons.size(); i++) {
             System.out.println("ID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
@@ -47,7 +47,7 @@ public class Library {
      *
      * @return String
      */
-    public static void displayLibraryBooks(){
+    private static void displayLibraryBooks(){
 
         for (int i = 0; i < libraryShelf.size(); i++) {
             System.out.println("ID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
@@ -182,6 +182,14 @@ public class Library {
                     author = createModifyInput.nextLine();
                     LibraryBook b = new LibraryBook(title, author);
                     libraryShelf.add(b);
+
+                }else if(userChoice == 4){
+
+                    System.out.println();
+                    displayLibraryBooks();
+                    System.out.print("\nSelect the Library Book id: ");
+                    userChoice = menuOptionInput.nextInt();
+                    libraryShelf.remove(userChoice);
 
                 }
 
