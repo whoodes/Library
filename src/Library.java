@@ -64,13 +64,16 @@ public class Library {
      * @param key String
      * @return boolean
      */
-    public ArrayList<LibraryBook> searchByBook(String key) {
+    public static ArrayList<LibraryBook> searchByBook(String key) {
 
         ArrayList<LibraryBook> results = new ArrayList<>();
 
         for (LibraryBook b : libraryShelf) {
-            if (b.getTitle().contains(key) || b.getAuthor().contains(key)) {
+            if (b.getTitle().toLowerCase().contains(key.toLowerCase())
+                    || b.getAuthor().toLowerCase().contains(key.toLowerCase())) {
+
                 results.add(b);
+
             }
         }
 
@@ -86,13 +89,16 @@ public class Library {
      * @param key String
      * @return boolean
      */
-    public ArrayList<Patron> searchByPatron(String key){
+    public static ArrayList<Patron> searchByPatron(String key){
 
         ArrayList<Patron> results = new ArrayList<>();
 
         for(Patron p : libraryPatrons){
-            if(p.getFirstName().contains(key) || p.getLastName().contains(key)){
+            if(p.getFirstName().toLowerCase().contains(key.toLowerCase())
+                    || p.getLastName().toLowerCase().contains(key.toLowerCase())){
+
                 results.add(p);
+
             }
         }
 
@@ -211,23 +217,42 @@ public class Library {
                         displayLibraryBooks();
                     }
 
+                //Search by Patron or Library Book//
                 }else if(userChoice == 7){
 
+                    String key;
+                    System.out.print("Enter \"0\" for Patron and \"1\" for Library Book: ");
+                    userChoice = menuOptionInput.nextInt();
+                    System.out.print("Enter the search key: ");
+                    key = searchKeyInput.nextLine();
 
+                    if(userChoice == 0){
+
+                        ArrayList<Patron> results = searchByPatron(key);
+                        for(Patron p : results){
+                            System.out.println(p.toString());
+                        }
+
+                    }else{
+
+                        ArrayList<LibraryBook> results = searchByBook(key);
+                        for(LibraryBook b : results){
+                            System.out.println(b.toString());
+                        }
+
+                    }
+
+                }else if(userChoice == 8){
 
                 }
-
 
             }catch(Exception ex){
                 System.out.println("An error occurred...\n");
                 menuOptionInput.next();
             }
 
-
-
         }
 
     }
-
 
 }
