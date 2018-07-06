@@ -18,7 +18,7 @@ public class Library {
             "8. Check out a Library Book.\n" +
             "9. Display all currently checked out Library books.\n" +
             "10. Exit.";
-    private static String enterChoice = "Please enter a corresponding number from the option list: ";
+    private static String enterChoice = "\nPlease enter a corresponding number from the option list: ";
 
     /*
     In case the number of options available changes
@@ -30,8 +30,6 @@ public class Library {
 
     /**
      * Display the current Patrons.
-     * Returns the empty String if no
-     * Patrons are in the system
      *
      * @return String
      */
@@ -46,18 +44,15 @@ public class Library {
 
     /**
      * Display the current LibraryBooks.
-     * Returns the empty String if no
-     * LibraryBooks are in the system
      *
      * @return String
      */
-    public String displayLibraryBooks(){
+    public static void displayLibraryBooks(){
 
-        for(LibraryBook b : libraryShelf){
-            return b.toString();
+        for (int i = 0; i < libraryShelf.size(); i++) {
+            System.out.println("ID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
+
         }
-
-        return "";
 
     }
 
