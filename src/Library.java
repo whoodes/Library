@@ -107,6 +107,7 @@ public class Library {
      */
     public String diplayAllCheckedOutBooks(){
 
+
         for(LibraryBook b : libraryShelf){
             if(b.getCheckedOut()){
                 return b.toString();
@@ -167,7 +168,7 @@ public class Library {
 
                     System.out.println();
                     displayPatrons();
-                    System.out.print("\nSelect the patron id: ");
+                    System.out.print("Select the patron id: ");
                     userChoice = menuOptionInput.nextInt();
                     libraryPatrons.remove(userChoice);
 
@@ -183,6 +184,7 @@ public class Library {
                     LibraryBook b = new LibraryBook(title, author);
                     libraryShelf.add(b);
 
+                //Remove a Library Book//
                 }else if(userChoice == 4){
 
                     System.out.println();
@@ -190,6 +192,28 @@ public class Library {
                     System.out.print("\nSelect the Library Book id: ");
                     userChoice = menuOptionInput.nextInt();
                     libraryShelf.remove(userChoice);
+
+                //Display all patrons//
+                }else if(userChoice == 5){
+
+                    if(libraryPatrons.isEmpty()){
+                        System.out.println("No patrons are currently in the system.");
+                    }else {
+                        displayPatrons();
+                    }
+
+                //Display all LibraryBooks//
+                }else if(userChoice == 6){
+
+                    if(libraryShelf.isEmpty()){
+                        System.out.println("No books are currently in the system.");
+                    }else {
+                        displayLibraryBooks();
+                    }
+
+                }else if(userChoice == 7){
+
+
 
                 }
 
