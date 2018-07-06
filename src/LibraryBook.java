@@ -8,6 +8,25 @@ public class LibraryBook implements Book {
     private Calendar dueDate = Calendar.getInstance();
 
     /**
+     * No args LibraryBook constructor
+     *
+     */
+    LibraryBook(){
+        this("default", "default");
+    }
+
+    /**
+     * LibraryBook constructor
+     *
+     * @param title String
+     * @param author String
+     */
+    LibraryBook(String title, String author){
+        this.title = title;
+        this.author = author;
+    }
+
+    /**
      * Set the title of the book
      *
      * @param title String
