@@ -35,11 +35,13 @@ public class Library {
      *
      * @return String
      */
-    public String displayPatrons(){
+    public String displayPatrons() {
 
-        for(Patron p : libraryPatrons){
-            return p.toString();
+        for (int i = 0; i < libraryPatrons.size(); i++) {
+            return i + ". " + libraryPatrons.get(i).toString();
+
         }
+
         return "";
 
     }
@@ -56,6 +58,7 @@ public class Library {
         for(LibraryBook b : libraryShelf){
             return b.toString();
         }
+
         return "";
 
     }
@@ -73,13 +76,9 @@ public class Library {
         ArrayList<LibraryBook> results = new ArrayList<>();
 
         for (LibraryBook b : libraryShelf) {
-
             if (b.getTitle().contains(key) || b.getAuthor().contains(key)) {
                 results.add(b);
-            }else{
-                continue;
             }
-
         }
 
         return results;
@@ -99,13 +98,9 @@ public class Library {
         ArrayList<Patron> results = new ArrayList<>();
 
         for(Patron p : libraryPatrons){
-
             if(p.getFirstName().contains(key) || p.getLastName().contains(key)){
                 results.add(p);
-            }else{
-                continue;
             }
-
         }
 
         return results;
@@ -120,13 +115,9 @@ public class Library {
     public String diplayAllCheckedOutBooks(){
 
         for(LibraryBook b : libraryShelf){
-
             if(b.getCheckedOut()){
                 return b.toString();
-            }else {
-                continue;
             }
-
         }
 
         return "";
@@ -153,14 +144,13 @@ public class Library {
 
                 userInputLoopGuard = false;
                 //Loop to ensure correct initial input//
-                while (userInputLoopGuard == false) {
+                while (!userInputLoopGuard) {
 
                     System.out.print(enterChoice);
                     userChoice = menuOptionInput.nextInt();
 
                     if (userChoice >= lowOption && userChoice <= highOption) {
                         userInputLoopGuard = true;
-                        continue;
                     } else {
                         System.out.println();
                     }
@@ -169,6 +159,7 @@ public class Library {
 
                 //Add a patron//
                 if (userChoice == 1) {
+
                     String firstName;
                     String lastName;
                     System.out.print("Enter first name: ");
@@ -177,7 +168,22 @@ public class Library {
                     lastName = createModifyInput.nextLine();
                     Patron patron = new Patron(firstName, lastName);
                     libraryPatrons.add(patron);
-                    continue;
+
+                //Remove a patron//
+                }else if(userChoice == 2){
+
+                    String lastName;
+                    System.out.print("Enter the last name of the patron to be removed: ");
+                    lastName = createModifyInput.nextLine();
+
+                    for(Patron p : libraryPatrons){
+                        if(p.getLastName().toLowerCase().contains(lastName.toLowerCase())) {
+                            System.out.println(p.toString());
+                        }
+                    }
+
+
+
                 }
 
 
