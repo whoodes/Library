@@ -35,14 +35,12 @@ public class Library {
      *
      * @return String
      */
-    public String displayPatrons() {
+    public static void displayPatrons() {
 
         for (int i = 0; i < libraryPatrons.size(); i++) {
-            return i + ". " + libraryPatrons.get(i).toString();
+            System.out.println("ID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
 
         }
-
-        return "";
 
     }
 
@@ -172,17 +170,11 @@ public class Library {
                 //Remove a patron//
                 }else if(userChoice == 2){
 
-                    String lastName;
-                    System.out.print("Enter the last name of the patron to be removed: ");
-                    lastName = createModifyInput.nextLine();
-
-                    for(Patron p : libraryPatrons){
-                        if(p.getLastName().toLowerCase().contains(lastName.toLowerCase())) {
-                            System.out.println(p.toString());
-                        }
-                    }
-
-
+                    System.out.println();
+                    displayPatrons();
+                    System.out.print("\nSelect the patron id: ");
+                    userChoice = menuOptionInput.nextInt();
+                    libraryPatrons.remove(userChoice);
 
                 }
 
