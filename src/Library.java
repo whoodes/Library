@@ -171,6 +171,18 @@ public class Library {
                     userChoice = menuOptionInput.nextInt();
                     libraryPatrons.remove(userChoice);
 
+                //Add a LibraryBook//
+                }else if(userChoice == 3){
+
+                    String title;
+                    String author;
+                    System.out.print("Enter the title: ");
+                    title = createModifyInput.nextLine();
+                    System.out.print("Enter the author: ");
+                    author = createModifyInput.nextLine();
+                    LibraryBook b = new LibraryBook(title, author);
+                    libraryShelf.add(b);
+
                 }
 
 
