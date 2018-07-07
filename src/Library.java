@@ -36,7 +36,7 @@ public class Library {
     private static void displayPatrons() {
 
         for (int i = 0; i < libraryPatrons.size(); i++) {
-            System.out.println("\nID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
+            System.out.print("\nID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
         }
 
     }
@@ -48,7 +48,7 @@ public class Library {
     private static void displayLibraryBooks(){
 
         for (int i = 0; i < libraryShelf.size(); i++) {
-            System.out.println("\nID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
+            System.out.print("\nID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
         }
 
     }
@@ -271,14 +271,20 @@ public class Library {
 
                         System.lineSeparator();
                         displayPatrons();
-                        System.out.print("Enter a patron id: ");
+                        System.out.print("\nEnter a patron id: ");
                         System.lineSeparator();
                         patronId = menuOptionInput.nextInt();
                         displayLibraryBooks();
-                        System.out.print("Enter a book id: ");
-                        System.lineSeparator();
+                        System.out.print("\nEnter a book id: ");
                         bookId = menuOptionInput.nextInt();
-                        libraryPatrons.get(patronId).checkOutBook(libraryShelf.get(bookId));
+
+                        if(!libraryShelf.get(bookId).getCheckedOut()){
+                            libraryPatrons.get(patronId).checkOutBook(libraryShelf.get(bookId));
+                        }else{
+                            System.out.println("\nSorry, this book is checked out");
+                        }
+
+
 
                     }
 
