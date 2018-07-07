@@ -18,14 +18,15 @@ public class Library {
             "8. Check out a Library Book.\n" +
             "9. Display all currently checked out Library books.\n" +
             "10. Exit.";
-    private static String enterChoice = "\nPlease enter a corresponding number from the option list: ";
+    private static String enterChoice = "\nPlease enter a corresponding number from the option list " +
+            "(0 for options): ";
 
     /*
     In case the number of options available changes
     these variables will appear in the user input loop
     guards in the main method.
      */
-    private static int lowOption = 1;
+    private static int lowOption = 0;
     private static int highOption = 10;
 
     /**
@@ -118,7 +119,7 @@ public class Library {
 
         System.out.println(welcomeMessage + options);
 
-        int userChoice = 0; //Defaulted
+        int userChoice = -1; //Defaulted
         boolean userInputLoopGuard;
 
         //Independent inputs//
@@ -145,6 +146,10 @@ public class Library {
                         System.out.println();
                     }
 
+                }
+
+                if(userChoice == 0){
+                    System.out.println(options);
                 }
 
                 //Add a patron//
