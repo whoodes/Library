@@ -105,13 +105,17 @@ public class Library {
      * Display all checked out books
      *
      */
-    private static void displayCheckedOutBooks(){
+    private static boolean displayCheckedOutBooks(){
+
+        boolean result = false;
 
         for(int i = 0; i < libraryShelf.size(); i++){
             if(libraryShelf.get(i).getCheckedOut()){
+                result = true;
                 System.out.println(libraryShelf.get(i).toString());
             }
         }
+        return result;
 
     }
 
@@ -273,6 +277,11 @@ public class Library {
                     }
 
                 }else if(userChoice == 9){
+
+                    if(displayCheckedOutBooks() == false){
+                        System.out.println("There are no checked out books");
+                    }else
+                        displayCheckedOutBooks();
 
                 }
 
