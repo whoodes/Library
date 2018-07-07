@@ -36,7 +36,7 @@ public class Library {
     private static void displayPatrons() {
 
         for (int i = 0; i < libraryPatrons.size(); i++) {
-            System.out.println("ID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
+            System.out.println("\nID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
         }
 
     }
@@ -48,7 +48,7 @@ public class Library {
     private static void displayLibraryBooks(){
 
         for (int i = 0; i < libraryShelf.size(); i++) {
-            System.out.println("ID: " + i + ". " + libraryShelf.get(i).toString());
+            System.out.println("\nID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
         }
 
     }
@@ -226,6 +226,7 @@ public class Library {
                     if(libraryShelf.isEmpty()){
                         System.out.println("No books are currently in the system.");
                     }else {
+                        System.lineSeparator();
                         displayLibraryBooks();
                     }
 
@@ -238,6 +239,7 @@ public class Library {
                     System.out.print("Enter the search key: ");
                     key = searchKeyInput.nextLine();
 
+                    //Patron search//
                     if(userChoice == 0){
 
                         ArrayList<Patron> results = searchByPatron(key);
@@ -245,6 +247,7 @@ public class Library {
                             System.out.println(p.toString());
                         }
 
+                    //Library book search//
                     }else{
 
                         ArrayList<LibraryBook> results = searchByBook(key);
@@ -266,16 +269,20 @@ public class Library {
                         int patronId;
                         int bookId;
 
+                        System.lineSeparator();
                         displayPatrons();
                         System.out.print("Enter a patron id: ");
+                        System.lineSeparator();
                         patronId = menuOptionInput.nextInt();
                         displayLibraryBooks();
                         System.out.print("Enter a book id: ");
+                        System.lineSeparator();
                         bookId = menuOptionInput.nextInt();
                         libraryPatrons.get(patronId).checkOutBook(libraryShelf.get(bookId));
 
                     }
 
+                //Display all checked out books//
                 }else if(userChoice == 9){
 
                     if(displayCheckedOutBooks() == false){
@@ -292,6 +299,7 @@ public class Library {
 
         }
 
+        System.out.println("Exiting...");
     }
 
 }
