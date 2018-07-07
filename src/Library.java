@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The Library class containing the main method.
+ *
+ * @author Wyatt Hoodes
+ */
 public class Library {
 
     private static ArrayList<LibraryBook> libraryShelf = new ArrayList<>();
@@ -35,6 +40,7 @@ public class Library {
      */
     private static void displayPatrons() {
 
+        //Simple way to allow userChoice from the ArrayList//
         for (int i = 0; i < libraryPatrons.size(); i++) {
             System.out.print("\nID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
         }
@@ -47,6 +53,7 @@ public class Library {
      */
     private static void displayLibraryBooks(){
 
+        //Just like displayPatrons//
         for (int i = 0; i < libraryShelf.size(); i++) {
             System.out.print("\nID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
         }
@@ -63,8 +70,10 @@ public class Library {
      */
     public static ArrayList<LibraryBook> searchByBook(String key) {
 
+        //Make an ArrayList of all the matching results//
         ArrayList<LibraryBook> results = new ArrayList<>();
 
+        //Not a case sensitive search//
         for (LibraryBook b : libraryShelf) {
             if (b.getTitle().toLowerCase().contains(key.toLowerCase())
                     || b.getAuthor().toLowerCase().contains(key.toLowerCase())) {
@@ -87,8 +96,10 @@ public class Library {
      */
     public static ArrayList<Patron> searchByPatron(String key){
 
+        //Make an ArrayList of all the matching results//
         ArrayList<Patron> results = new ArrayList<>();
 
+        //Not a case sensitive search//
         for(Patron p : libraryPatrons){
             if(p.getFirstName().toLowerCase().contains(key.toLowerCase())
                     || p.getLastName().toLowerCase().contains(key.toLowerCase())){
@@ -107,11 +118,13 @@ public class Library {
      */
     private static boolean displayCheckedOutBooks(){
 
+        //Added a boolean in case there are no books checked out//
         boolean result = false;
+
 
         for(int i = 0; i < libraryShelf.size(); i++){
             if(libraryShelf.get(i).getCheckedOut()){
-                result = true;
+                result = true;  //There are books checked out//
                 System.out.println(libraryShelf.get(i).toString());
             }
         }
@@ -152,6 +165,7 @@ public class Library {
 
                 }
 
+                //For displaying the options//
                 if(userChoice == 0){
                     System.out.println(options);
                 }
@@ -171,6 +185,7 @@ public class Library {
                 //Remove a patron//
                 }else if(userChoice == 2){
 
+                    //Need patrons in the system//
                     if(!libraryPatrons.isEmpty()){
 
                         System.out.println();
@@ -198,6 +213,7 @@ public class Library {
                 //Remove a Library Book//
                 }else if(userChoice == 4){
 
+                    //Need books on the shelf//
                     if(!libraryShelf.isEmpty()){
 
                         System.out.println();
@@ -284,8 +300,6 @@ public class Library {
                             System.out.println("\nSorry, this book is checked out");
                         }
 
-
-
                     }
 
                 //Display all checked out books//
@@ -293,8 +307,9 @@ public class Library {
 
                     if(displayCheckedOutBooks() == false){
                         System.out.println("There are no checked out books");
-                    }else
+                    }else {
                         displayCheckedOutBooks();
+                    }
 
                 }
 

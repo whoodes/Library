@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Patron Class for Library use
+ *
+ * @author Wyatt Hoodes
+ */
 public class Patron {
 
     private String firstName;

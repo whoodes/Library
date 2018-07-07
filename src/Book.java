@@ -1,6 +1,11 @@
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Book Interface for the Library Class
+ *
+ * @author Wyatt Hoodes
+ */
 public interface Book {
 
     /**

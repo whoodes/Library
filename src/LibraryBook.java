@@ -1,6 +1,11 @@
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * LibraryBook Class implementing the book interface for use by the Library Class
+ *
+ * @author Wyatt Hoodes
+ */
 public class LibraryBook implements Book {
 
     private String title;
