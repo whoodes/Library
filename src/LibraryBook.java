@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.Date;
 
 public class LibraryBook implements Book {
 
@@ -92,8 +93,8 @@ public class LibraryBook implements Book {
      * @return Calendar
      */
     @Override
-    public Calendar getDueDate(){
-        return dueDate;
+    public Date getDueDate(){
+        return dueDate.getTime();
     }
 
     /**
@@ -117,7 +118,7 @@ public class LibraryBook implements Book {
         if (checkedOut == false){
             return getTitle() + " by " + getAuthor() + ": checked in";
         }else
-            return getTitle() + " by " + getAuthor() + ": checked out";
+            return getTitle() + " by " + getAuthor() + ": checked out, due " + getDueDate();
 
     }
 

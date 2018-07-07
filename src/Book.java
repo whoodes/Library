@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.Date;
 
 public interface Book {
 
@@ -44,7 +45,7 @@ public interface Book {
      *
      * @return Calendar
      */
-    Calendar getDueDate();
+    Date getDueDate();
 
     /**
      * Set the book's due date
