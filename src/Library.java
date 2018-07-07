@@ -31,13 +31,11 @@ public class Library {
     /**
      * Display the current Patrons.
      *
-     * @return String
      */
     private static void displayPatrons() {
 
         for (int i = 0; i < libraryPatrons.size(); i++) {
             System.out.println("ID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
-
         }
 
     }
@@ -45,13 +43,11 @@ public class Library {
     /**
      * Display the current LibraryBooks.
      *
-     * @return String
      */
     private static void displayLibraryBooks(){
 
         for (int i = 0; i < libraryShelf.size(); i++) {
             System.out.println("ID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
-
         }
 
     }
@@ -76,7 +72,6 @@ public class Library {
 
             }
         }
-
         return results;
 
     }
@@ -101,26 +96,21 @@ public class Library {
 
             }
         }
-
         return results;
 
     }
 
     /**
-     * Display all of the checked out books in the system
+     * Display all checked out books
      *
-     * @return String
      */
-    public String diplayAllCheckedOutBooks(){
+    private static void displayCheckedOutBooks(){
 
-
-        for(LibraryBook b : libraryShelf){
-            if(b.getCheckedOut()){
-                return b.toString();
+        for(int i = 0; i < libraryShelf.size(); i++){
+            if(libraryShelf.get(i).getCheckedOut()){
+                System.out.println(libraryShelf.get(i).toString());
             }
         }
-
-        return "";
 
     }
 
@@ -243,6 +233,27 @@ public class Library {
                     }
 
                 }else if(userChoice == 8){
+
+                    if(libraryPatrons.isEmpty()){
+                        System.out.println("No patrons are in the system.");
+                    }else if(libraryShelf.isEmpty()){
+                        System.out.println("No library books are in the system.");
+                    }else{
+
+                        int patronId;
+                        int bookId;
+
+                        displayPatrons();
+                        System.out.print("Enter a patron id: ");
+                        patronId = menuOptionInput.nextInt();
+                        displayLibraryBooks();
+                        System.out.print("Enter a book id: ");
+                        bookId = menuOptionInput.nextInt();
+                        libraryPatrons.get(patronId).checkOutBook(libraryShelf.get(bookId));
+
+                    }
+
+                }else if(userChoice == 9){
 
                 }
 
