@@ -47,7 +47,7 @@ public class Library {
     private static void displayLibraryBooks(){
 
         for (int i = 0; i < libraryShelf.size(); i++) {
-            System.out.println("ID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
+            System.out.println("ID: " + i + ". " + libraryShelf.get(i).toString());
         }
 
     }
@@ -162,11 +162,17 @@ public class Library {
                 //Remove a patron//
                 }else if(userChoice == 2){
 
-                    System.out.println();
-                    displayPatrons();
-                    System.out.print("Select the patron id: ");
-                    userChoice = menuOptionInput.nextInt();
-                    libraryPatrons.remove(userChoice);
+                    if(!libraryPatrons.isEmpty()){
+
+                        System.out.println();
+                        displayPatrons();
+                        System.out.print("Select the patron id: ");
+                        userChoice = menuOptionInput.nextInt();
+                        libraryPatrons.remove(userChoice);
+
+                    }else{
+                        System.out.println("There are no Library patrons.");
+                    }
 
                 //Add a LibraryBook//
                 }else if(userChoice == 3){
@@ -183,11 +189,18 @@ public class Library {
                 //Remove a Library Book//
                 }else if(userChoice == 4){
 
-                    System.out.println();
-                    displayLibraryBooks();
-                    System.out.print("\nSelect the Library Book id: ");
-                    userChoice = menuOptionInput.nextInt();
-                    libraryShelf.remove(userChoice);
+                    if(!libraryShelf.isEmpty()){
+
+                        System.out.println();
+                        displayLibraryBooks();
+                        System.out.print("\nSelect the Library Book id: ");
+                        userChoice = menuOptionInput.nextInt();
+                        libraryShelf.remove(userChoice);
+
+                    }else{
+                        System.out.println("The library shelf is empty.");
+                    }
+
 
                 //Display all patrons//
                 }else if(userChoice == 5){
@@ -232,6 +245,7 @@ public class Library {
 
                     }
 
+                //Check out a book//
                 }else if(userChoice == 8){
 
                     if(libraryPatrons.isEmpty()){
