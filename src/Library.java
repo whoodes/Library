@@ -62,11 +62,11 @@ public class Library {
 
     /**
      * Check each LibraryBook in the system against
-     * a String key.  If there is a match return true,
-     * otherwise return false.
+     * a String key.  Return an ArrayList, either empty
+     * or non-empty.
      *
      * @param key String
-     * @return boolean
+     * @return ArrayList<LibraryBook>
      */
     public static ArrayList<LibraryBook> searchByBook(String key) {
 
@@ -88,11 +88,11 @@ public class Library {
 
     /**
      * Check each Patron in the system against
-     * a String key. If there is a match return true,
-     * otherwise return false.
+     * a String key. Return an ArrayList, either empty
+     * or non-empty.
      *
      * @param key String
-     * @return boolean
+     * @return ArrayList<Patron>
      */
     public static ArrayList<Patron> searchByPatron(String key){
 
@@ -139,7 +139,7 @@ public class Library {
         int userChoice = -1; //Defaulted
         boolean userInputLoopGuard;
 
-        //Independent inputs//
+        //Independent inputs makes things easier//
         Scanner menuOptionInput = new Scanner(System.in);   //For user input
         Scanner createModifyInput = new Scanner(System.in); //For user create / modify
         Scanner searchKeyInput = new Scanner(System.in);    //For user searches
