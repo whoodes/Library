@@ -12,6 +12,7 @@ public class Library {
     private static ArrayList<Patron> libraryPatrons = new ArrayList<>();
 
     private static String welcomeMessage = "*** Welcome to Library Manager 0.1 ***\n\n";
+    
     private static String options = "Options: \n\n" +
             "1. Add a Patron\n" +
             "2. Remove a Patron.\n" +
@@ -23,6 +24,7 @@ public class Library {
             "8. Check out a Library Book.\n" +
             "9. Display all currently checked out Library books.\n" +
             "10. Exit.";
+    
     private static String enterChoice = "\nPlease enter a corresponding number from the option list " +
             "(0 for options): ";
 
@@ -39,25 +41,21 @@ public class Library {
      *
      */
     private static void displayPatrons() {
-
         //Simple way to allow userChoice from the ArrayList//
         for (int i = 0; i < libraryPatrons.size(); i++) {
             System.out.print("\nID: " + i + ". " + libraryPatrons.get(i).toString() + "\n");
         }
-
     }
 
     /**
      * Display the current LibraryBooks.
      *
      */
-    private static void displayLibraryBooks(){
-
+    private static void displayLibraryBooks() {       
         //Just like displayPatrons//
         for (int i = 0; i < libraryShelf.size(); i++) {
             System.out.print("\nID: " + i + ". " + libraryShelf.get(i).toString() + "\n");
         }
-
     }
 
     /**
@@ -69,7 +67,6 @@ public class Library {
      * @return ArrayList<LibraryBook>
      */
     public static ArrayList<LibraryBook> searchByBook(String key) {
-
         //Make an ArrayList of all the matching results//
         ArrayList<LibraryBook> results = new ArrayList<>();
 
@@ -79,11 +76,9 @@ public class Library {
                     || b.getAuthor().toLowerCase().contains(key.toLowerCase())) {
 
                 results.add(b);
-
             }
         }
         return results;
-
     }
 
     /**
@@ -94,8 +89,7 @@ public class Library {
      * @param key String
      * @return ArrayList<Patron>
      */
-    public static ArrayList<Patron> searchByPatron(String key){
-
+    public static ArrayList<Patron> searchByPatron(String key) {
         //Make an ArrayList of all the matching results//
         ArrayList<Patron> results = new ArrayList<>();
 
@@ -105,25 +99,21 @@ public class Library {
                     || p.getLastName().toLowerCase().contains(key.toLowerCase())){
 
                 results.add(p);
-
             }
         }
         return results;
-
     }
 
     /**
      * Display all checked out books
      *
      */
-    private static boolean displayCheckedOutBooks(){
-
+    private static boolean displayCheckedOutBooks() {
         //Added a boolean in case there are no books checked out//
         boolean result = false;
 
-
-        for(int i = 0; i < libraryShelf.size(); i++){
-            if(libraryShelf.get(i).getCheckedOut()){
+        for(int i = 0; i < libraryShelf.size(); i++) {
+            if(libraryShelf.get(i).getCheckedOut()) {
                 result = true;  //There are books checked out//
                 System.out.println(libraryShelf.get(i).toString());
             }
@@ -132,8 +122,7 @@ public class Library {
 
     }
 
-    public static void main(String[] args){
-
+    public static void main(String[] args) {
         System.out.println(welcomeMessage + options);
 
         int userChoice = -1; //Defaulted
@@ -144,12 +133,10 @@ public class Library {
         Scanner createModifyInput = new Scanner(System.in); //For user create / modify
         Scanner searchKeyInput = new Scanner(System.in);    //For user searches
 
-
         //Loop the program until the user enters highOption//
         while(userChoice != highOption) {
 
             try {
-
                 userInputLoopGuard = false;
                 //Loop to ensure correct initial input//
                 while (!userInputLoopGuard) {
@@ -166,13 +153,14 @@ public class Library {
                 }
 
                 //For displaying the options//
-                if(userChoice == 0){
+                if(userChoice == 0) {
+                   
                     System.out.println(options);
                 }
 
                 //Add a patron//
                 if (userChoice == 1) {
-
+                    
                     String firstName;
                     String lastName;
                     System.out.print("Enter first name: ");
@@ -183,10 +171,10 @@ public class Library {
                     libraryPatrons.add(patron);
 
                 //Remove a patron//
-                }else if(userChoice == 2){
-
+                }else if(userChoice == 2) {
+                    
                     //Need patrons in the system//
-                    if(!libraryPatrons.isEmpty()){
+                    if(!libraryPatrons.isEmpty()) {
 
                         System.out.println();
                         displayPatrons();
@@ -199,8 +187,8 @@ public class Library {
                     }
 
                 //Add a LibraryBook//
-                }else if(userChoice == 3){
-
+                }else if(userChoice == 3) {
+                    
                     String title;
                     String author;
                     System.out.print("Enter the title: ");
@@ -211,10 +199,10 @@ public class Library {
                     libraryShelf.add(b);
 
                 //Remove a Library Book//
-                }else if(userChoice == 4){
+                }else if(userChoice == 4) {
 
                     //Need books on the shelf//
-                    if(!libraryShelf.isEmpty()){
+                    if(!libraryShelf.isEmpty()) {
 
                         System.out.println();
                         displayLibraryBooks();
@@ -228,18 +216,18 @@ public class Library {
 
 
                 //Display all patrons//
-                }else if(userChoice == 5){
+                }else if(userChoice == 5) {
 
-                    if(libraryPatrons.isEmpty()){
+                    if(libraryPatrons.isEmpty()) {
                         System.out.println("No patrons are currently in the system.");
                     }else {
                         displayPatrons();
                     }
 
                 //Display all LibraryBooks//
-                }else if(userChoice == 6){
+                }else if(userChoice == 6) {
 
-                    if(libraryShelf.isEmpty()){
+                    if(libraryShelf.isEmpty()) {
                         System.out.println("No books are currently in the system.");
                     }else {
                         System.lineSeparator();
@@ -247,7 +235,7 @@ public class Library {
                     }
 
                 //Search by Patron or Library Book//
-                }else if(userChoice == 7){
+                }else if(userChoice == 7) {
 
                     String key;
                     System.out.print("Enter \"0\" for Patron and \"1\" for Library Book: ");
@@ -256,31 +244,30 @@ public class Library {
                     key = searchKeyInput.nextLine();
 
                     //Patron search//
-                    if(userChoice == 0){
+                    if(userChoice == 0) {
 
                         ArrayList<Patron> results = searchByPatron(key);
-                        for(Patron p : results){
+                        for(Patron p : results) {
                             System.out.println(p.toString());
                         }
 
                     //Library book search//
-                    }else{
+                    }else {
 
                         ArrayList<LibraryBook> results = searchByBook(key);
-                        for(LibraryBook b : results){
+                        for(LibraryBook b : results) {
                             System.out.println(b.toString());
                         }
-
                     }
 
                 //Check out a book//
-                }else if(userChoice == 8){
+                }else if(userChoice == 8) {
 
-                    if(libraryPatrons.isEmpty()){
+                    if(libraryPatrons.isEmpty()) {
                         System.out.println("No patrons are in the system.");
-                    }else if(libraryShelf.isEmpty()){
+                    }else if(libraryShelf.isEmpty()) {
                         System.out.println("No library books are in the system.");
-                    }else{
+                    }else {
 
                         int patronId;
                         int bookId;
@@ -294,18 +281,17 @@ public class Library {
                         System.out.print("\nEnter a book id: ");
                         bookId = menuOptionInput.nextInt();
 
-                        if(!libraryShelf.get(bookId).getCheckedOut()){
+                        if(!libraryShelf.get(bookId).getCheckedOut()) {
                             libraryPatrons.get(patronId).checkOutBook(libraryShelf.get(bookId));
-                        }else{
+                        }else {
                             System.out.println("\nSorry, this book is checked out");
                         }
-
                     }
 
                 //Display all checked out books//
-                }else if(userChoice == 9){
+                }else if(userChoice == 9) {
 
-                    if(displayCheckedOutBooks() == false){
+                    if(displayCheckedOutBooks() == false) {
                         System.out.println("There are no checked out books");
                     }else {
                         displayCheckedOutBooks();
@@ -313,14 +299,12 @@ public class Library {
 
                 }
 
-            }catch(Exception ex){
+            }catch(Exception ex) {
                 System.out.println("An error occurred...\n");
                 menuOptionInput.next();
             }
-
         }
-
+        
         System.out.println("Exiting...");
     }
-
 }
