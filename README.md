@@ -2,7 +2,7 @@
 
 This project is a reconstruction of a previous work from my first introduction
 to computer science course.  The main purpose of this project was to demonstrate
-understanding of OOP as well as familarizing myself with using git as a DVCS.  
+understanding of OOP as well as familarizing myself with using git as a DVCS. 
 An in-depth understanding of class relations, as well as the purpose of an interface's 
 'contractual' inheritance was gained from building this program, twice.  I learned
 the importance of backing-up files the hard way... which is where using git came into
