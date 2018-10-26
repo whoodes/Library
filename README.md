@@ -12,9 +12,12 @@ for backing up data (along with multiple others) was met with open arms.
 There are three main classes and a single interface:
 
 #### A Book interface
-#### A Patron class,
-#### A LibraryBook class,
-#### A Library class containing the main method.
+#### A Patron class
+#### A LibraryBook class
+#### A Library class containing the main method
+
+The functionality of the library program is that of a typical library checkout
+system...
 
  * This program allows the user to add and remove patrons.
  * Add and remove library books.
