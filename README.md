@@ -9,12 +9,13 @@ the importance of backing-up files the hard way... which is where using git came
 play.  The oportunity for source code version control, as well as a cloud based instance
 for backing up data (along with multiple others) was met with open arms.
 
-There are three main classes and a single interface:
+### There are three main classes and a single interface:
 
-#### A Book interface
-#### A Patron class
-#### A LibraryBook class
-#### A Library class
+##### A Book interface
+##### A Patron class
+##### A LibraryBook class
+##### A Library class
+
 
 The functionality of the library program is that of a typical library checkout
 system...
