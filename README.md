@@ -16,6 +16,8 @@ for backing up data (along with multiple others) was met with open arms.
 ##### A LibraryBook class
 ##### A Library class
 
+The interface was used to gain understanding of the contractual relationship between a class that
+implements an interface.
 
 ### Functionality 
 
