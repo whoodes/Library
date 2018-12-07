@@ -17,8 +17,8 @@ for backing up data (along with multiple others) was met with open arms.
 ##### A Library class
 
 
-The functionality of the library program is that of a typical library checkout
-system...
+**The functionality of the library program is that of a typical library checkout
+system...**
 
  * This program allows the user to add and remove patrons.
  * Add and remove library books.
