@@ -154,7 +154,6 @@ public class Library {
 
                 //For displaying the options//
                 if(userChoice == 0) {
-                   
                     System.out.println(options);
                 }
 
